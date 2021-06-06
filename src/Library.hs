@@ -168,3 +168,21 @@ gemaDeMayorPoder personaje ( gema1 : gema2 : gemas) | energia (ejecutarPoder per
                                                     | otherwise =  gemaDeMayorPoder personaje (gema1 : gemas) 
 -}
 
+--Punto 7
+infinitasGemas :: GemasDelInfinito -> [GemasDelInfinito]
+infinitasGemas gema = gema: (infinitasGemas gema) --Construye lista infinita de una determinada gema
+
+guanteleteDeLocos :: Guantelete
+guanteleteDeLocos = Guantelete "vesconite" (infinitasGemas tiempo) ----Construye un guantenete con infinitas gemas
+
+usoLasTresPrimerasGemas :: Guantelete -> Personaje -> Personaje
+usoLasTresPrimerasGemas guantelete = (utilizar . take 3. gemas) guantelete
+
+{-Justifique si se puede ejecutar, relacionándolo con conceptos vistos en la cursada:
+gemaMasPoderosa punisher guanteleteDeLocos  (puede reemplazar punisher por cualquier personaje que haya definido en el punto 1)
+--SE CUELGA
+
+usoLasTresPrimerasGemas guanteleteDeLocos punisher --Devuelve algo
+--NO SE CUELGA
+
+-}
